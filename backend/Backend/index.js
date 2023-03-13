@@ -1,0 +1,11 @@
+const express = require("express")
+const app= express()
+require("./conn")
+const authRoute = require("./Routes/auth")
+const updateUserRoute = require("./Routes/User")
+app.use(express.json())
+app.use("/", authRoute)
+app.use("/", updateUserRoute)
+app.listen(4000,()=>{
+    console.log("server is up")
+})
